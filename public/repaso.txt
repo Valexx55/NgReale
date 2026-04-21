@@ -1,0 +1,14 @@
+ENTORNO: NODE (npm) --> ng cliente de angular
+COMPONENTE: Apartado de página (CSS+HTML+JS(TS)), "etiqueta personalizada"
+ENRUTAMIENTO: 
+
+app.routes: fichero que asocia rutas con componentes
+<router-outlet>: componente de referencia donde se anclan el resto
+routerLink, routerLinkActive: directivas (atributos de etiquetas)
+Módulo de rutas: RouterModule --> módulo: agrupación funcional de clases
+
+Depedencias de nuestra app, van en el fichero package.json
+
+SPA: Single Page Application . Sólo exite el index.html
+
+Ciclo de vida del componente: constructor, ngOnInit...ngOnDestroy

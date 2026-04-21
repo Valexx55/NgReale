@@ -3,9 +3,10 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',//nombre de la etiqueta
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],//STANDALONE
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  standalone: true //por defecto: esta clase es independiente, no pertenece a ningún módulo
 })
 export class AppComponent {
   /**
