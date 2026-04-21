@@ -90,7 +90,6 @@ export class ImcComponent {
     this.mediaPeso = this.obtenerMediaPeso(this.listaImcs);
     this.mediaAltura = this.obtenerMediaAltura(this.listaImcs);
 
-
     //Sol Juan Diego OK!
     // let sumaAltura: number = 0;
     // let sumaPeso: number = 0;
@@ -104,29 +103,30 @@ export class ImcComponent {
     // this.mediaAltura = sumaAltura / this.listaImcs.length;
     // this.mediaPeso = sumaPeso / this.listaImcs.length;
 
-
     //Sol EDU Sánchez con reduce
-  this.mediaPeso = this.listaImcs.reduce((sum, imc) => sum + imc.peso, 0) / this.listaImcs.length;
-  this.mediaAltura = this.listaImcs.reduce((sum, imc) => sum + imc.altura, 0) / this.listaImcs.length;
-
-    
+    this.mediaPeso =
+      this.listaImcs.reduce((sum, imc) => sum + imc.peso, 0) /
+      this.listaImcs.length;
+    this.mediaAltura =
+      this.listaImcs.reduce((sum, imc) => sum + imc.altura, 0) /
+      this.listaImcs.length;
   }
 
-   obtenerMediaPeso(array_imcs: Array<Imc>): number {
+  obtenerMediaPeso(array_imcs: Array<Imc>): number {
     let media: number = 0;
     let total: number = 0;
 
-      //sumo los valores - sumatorio /
-      array_imcs.forEach((item_imc) => {
-        total += item_imc.peso;
-      });
-      //divido entre el nº de elementos
-      media = total / array_imcs.length;
+    //sumo los valores - sumatorio /
+    array_imcs.forEach((item_imc) => {
+      total += item_imc.peso;
+    });
+    //divido entre el nº de elementos
+    media = total / array_imcs.length;
 
     return media;
   }
 
-    obtenerMediaAltura(array_imcs: Array<Imc>): number {
+  obtenerMediaAltura(array_imcs: Array<Imc>): number {
     let media: number = 0;
     let total: number = 0;
 
@@ -140,27 +140,46 @@ export class ImcComponent {
     return media;
   }
 
-  getColorCategoria(lectura:string): string {
+  getColorCategoria(lectura: string): string {
     let estilo = '';
 
-      switch (lectura)
-      {
-        case 'DESNUTRIDO':
-        case 'OBESO':
-           estilo = "badge bg-danger";
-          break;
-        case 'SOBREPESO':
-        case 'DELGADO':
-           estilo = "badge bg-warning";
-          break;
-        default://IDEAL
-          estilo = "badge bg-success";
-      }
-      
-
+    switch (lectura) {
+      case 'DESNUTRIDO':
+      case 'OBESO':
+        estilo = 'badge bg-danger';
+        break;
+      case 'SOBREPESO':
+      case 'DELGADO':
+        estilo = 'badge bg-warning';
+        break;
+      default: //IDEAL
+        estilo = 'badge bg-success';
+    }
 
     return estilo;
-
   }
 
+  //Solución Jairo Méndez
+  //sort: si devuelvo positivo, el primero es mayor (a)
+  //si devuelvo negativo, el segundo es mayor (b)
+  //si son iguales devuelvo 0
+  ordenarPorIMC() {
+    this.listaImcs.sort((a: Imc, b: Imc): number => {
+      let valorRetorno = 0;
+     
+        valorRetorno = a.numerico - b.numerico;
+        /*if ((a.numerico) > (b.numerico)) 
+          {
+            valorRetorno = 1;
+          }
+        else if ((a.numerico) < (b.numerico){
+          valorRetorno = -1;
+        } else valorRetorno = 0;*/
+      
+       return valorRetorno;
+    });
+  }
+  borrarListado() {
+    this.listaImcs = [];
+  }
 }
