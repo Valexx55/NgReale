@@ -1,9 +1,10 @@
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
   @Component({
     selector: 'app-dni',
-    imports: [FormsModule],
+    imports: [FormsModule, /*NgIf, CommonModule*/],
     templateUrl: './dni.component.html',
     styleUrl: './dni.component.css'
   })

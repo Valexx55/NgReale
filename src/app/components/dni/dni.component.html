@@ -35,3 +35,18 @@
 </div>
 <!-- event binding -->
 <button (click)="calcularLetraDni()" class="btn btn-primary">Calcular letra</button>
+
+<!-- If como directiva estructural -->
+<!-- 
+<div *ngIf="letra!=''" id="seccionLetraAntigua">
+    Su letra {{letra}}
+</div> -->
+
+
+<!-- If como sintaxis del lenguaje -->
+@if (letra!='')
+{
+    <div  id="seccionLetraNueva">
+        Su letra {{letra}}
+    </div>
+}
