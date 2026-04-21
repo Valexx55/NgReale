@@ -40,6 +40,7 @@ export class ImcComponent {
   mediaAltura: number = 0;
   mediaPeso: number = 0;
 
+  //listaImcs!: Array<Imc>;// = new Array<Imc>();
   listaImcs: Array<Imc> = new Array<Imc>();
   //listaImcs:Imc[]= [];
 

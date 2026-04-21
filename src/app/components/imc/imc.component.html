@@ -76,10 +76,77 @@
             </div>
         </div>
 
-        @if (mediaAltura != 0 || mediaPeso != 0) {
+        <!-- @if (mediaAltura != 0 || mediaPeso != 0) {
         <div>
             Altura media: {{mediaAltura}}
             Peso medio: {{mediaPeso}}
         </div>
-        }
+        } -->
     </div>
+
+    <!-- Histórico -->
+     <!-- @if (listaImcs.length >0) -->
+    @if (listaImcs && listaImcs.length >0)
+    {
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-light text-center">
+                        <tr>
+                            <th>PESO</th>
+                            <th>ALTURA</th>
+                            <th>IMC NUM</th>
+                            <th>LECTURA</th>
+                            <th class="text-center">FOTO</th>
+
+                        </tr>
+ 
+                    </thead>
+                    <tbody>
+                        @for (auximc of listaImcs; track $index)
+                        {
+
+                        <tr class="text-center">
+                            <td>{{ auximc.peso }}</td>
+                            <td>{{ auximc.altura }}</td>
+                            <td><strong>{{ auximc.numerico }}</strong></td>
+                            <td>
+                                <!-- <span [class]="getColorCategoria(auximc.categoria)"> -->
+                                    {{ auximc.lectura }}
+                                <!-- </span> -->
+                            </td>
+                            <td>
+                                <img src="{{ auximc.foto }}" alt="estado imc" class="rounded"
+                                    style="width: 60px; height: 60px; object-fit: cover;">
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            </div>
+
+            <hr class="my-3" />
+
+            <div class="row text-center">
+                <div class="col-12 col-md-6">
+                    <div class="text-muted">MEDIA altura</div>
+                    <div class="fs-5"><strong>{{ mediaAltura }}</strong></div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="text-muted">MEDIA peso</div>
+                    <div class="fs-5"><strong>{{ mediaPeso }}</strong></div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    } <!-- fin sección if listado  -->
+    
+</div>
