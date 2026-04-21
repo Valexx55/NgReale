@@ -28,8 +28,8 @@
                     <div class="mb-3">
                         <label for="altura" class="form-label">Altura (m)</label>
                         <div class="input-group">
-                            <input id="altura" type="number" name="altura" class="form-control"
-                                [(ngModel)]="altura" placeholder="Ej. 1.78" step="0.01" />
+                            <input id="altura" type="number" name="altura" class="form-control" [(ngModel)]="altura"
+                                placeholder="Ej. 1.78" step="0.01" />
                             <span class="input-group-text">m</span>
                         </div>
                     </div>
@@ -75,4 +75,11 @@
                 </div>
             </div>
         </div>
+
+        @if (mediaAltura != 0 || mediaPeso != 0) {
+        <div>
+            Altura media: {{mediaAltura}}
+            Peso medio: {{mediaPeso}}
+        </div>
+        }
     </div>
