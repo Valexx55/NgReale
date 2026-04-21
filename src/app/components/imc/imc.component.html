@@ -35,7 +35,8 @@
                     </div>
 
                     <div class="d-grid">
-                        <button (click)="calcularIMC()" class="btn btn-primary">
+                        <!-- property binding sobre disabled-->
+                        <button (click)="calcularIMC()" class="btn btn-primary" [disabled]="peso<=0 || altura<=0">
                             Calcular IMC
                         </button>
                     </div>

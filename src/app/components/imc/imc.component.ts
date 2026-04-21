@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Imc } from '../../models/imc';
 
 
 
@@ -40,6 +41,9 @@ export class ImcComponent {
     lectura:string='';
     foto:string='';
 
+    listaImcs:Array<Imc>= new Array<Imc>();
+    //listaImcs:Imc[]= [];
+
     
   static readonly FOTO_DESNUTRIDO: string = '/desnutrido.jpg';
   static readonly FOTO_DELGADO: string = '/delgado.jpg';
@@ -76,5 +80,18 @@ export class ImcComponent {
       this.lectura = 'OBESO'; //accedo al Enumerado como String
       this.foto = ImcComponent.FOTO_OBESO;
     }
+
+    let imcNuevo:Imc = new Imc();
+    imcNuevo.altura = this.altura;
+    imcNuevo.peso = this.peso;
+    imcNuevo.numerico = this.numerico;
+    imcNuevo.lectura = this.lectura;
+    imcNuevo.foto = this.foto;
+
+    this.listaImcs.push(imcNuevo);
+
   }
+  //TODO: definid dos propiedas nuevas en esta compente media altura y media
+  //de peso. estos valores, deben recalcularse para cada nuevo registro
+  //extra: mostradlo en la plantilla
 }
