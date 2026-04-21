@@ -105,6 +105,9 @@
  
                     </thead>
                     <tbody>
+                        <!-- con track, indicamos un atributo, para identificar a cada
+                         fila .de modo, que si se modifica un registro concreto, evitamos
+                         repintar toda la lista: obligatorio a partir de la v 17 -->
                         @for (auximc of listaImcs; track $index)
                         {
 
@@ -113,9 +116,9 @@
                             <td>{{ auximc.altura }}</td>
                             <td><strong>{{ auximc.numerico }}</strong></td>
                             <td>
-                                <!-- <span [class]="getColorCategoria(auximc.categoria)"> -->
+                                <span [class]="getColorCategoria(auximc.lectura)">
                                     {{ auximc.lectura }}
-                                <!-- </span> -->
+                                </span>
                             </td>
                             <td>
                                 <img src="{{ auximc.foto }}" alt="estado imc" class="rounded"

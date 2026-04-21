@@ -140,4 +140,27 @@ export class ImcComponent {
     return media;
   }
 
+  getColorCategoria(lectura:string): string {
+    let estilo = '';
+
+      switch (lectura)
+      {
+        case 'DESNUTRIDO':
+        case 'OBESO':
+           estilo = "badge bg-danger";
+          break;
+        case 'SOBREPESO':
+        case 'DELGADO':
+           estilo = "badge bg-warning";
+          break;
+        default://IDEAL
+          estilo = "badge bg-success";
+      }
+      
+
+
+    return estilo;
+
+  }
+
 }
