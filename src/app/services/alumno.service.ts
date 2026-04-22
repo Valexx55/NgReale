@@ -33,4 +33,9 @@ export class AlumnoService {
     //https://angular.dev/guide/http/making-requests#fetching-other-types-of-data
     return this.httpClient.get<Array<Alumno>>("https://my-json-server.typicode.com/valexx55/angularesjson/alumno");
    }
+
+
+   borrarAlumno(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`https://my-json-server.typicode.com/valexx55/angularesjson/alumno/${id}`);
+  }
 }

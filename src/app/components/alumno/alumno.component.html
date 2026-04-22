@@ -1,5 +1,6 @@
 <p>{{title}}</p>
 
+<button class="btn btn-primary" routerLink="/alumno/form">CREAR</button>
 <div class="listaAlumnos">
 
  
@@ -7,6 +8,7 @@
         <div class="card">
           
             <img class="card-img-top" [src]="getFotoAlumno(alumno.id)">
+            <!-- <img class="card-img-top" src="getFotoAlumno(alumno.id)"> -->
             <div class="card-body">
                 <h5 class="card-title"> {{alumno.id}} {{alumno.nombre}} {{alumno.apellido}} </h5>
                 <ul class="list-group list-group-flush">
@@ -17,11 +19,11 @@
                     <!-- <p>{{alumno.creadoEn |date:'short'}}</p> -->
                     <p>{{alumno.creadoEn |date:'dd/MM/yyyy'}}</p>
                 </div>
-                <button class="btn btn-danger" >
-                    BORRAR
+                <button class="btn btn-danger" (click)="borrarAlumno(alumno.id)" >
+                    <ng-icon name="heroTrashSolid" size="24"></ng-icon>
                 </button>
-                <button class="btn btn-success">
-                     EDITAR
+                <button class="btn btn-success" (click)="editarAlumno(alumno)">
+                     <ng-icon name="bootstrapPenFill" size="24"></ng-icon>
                 </button>
 
             </div>
