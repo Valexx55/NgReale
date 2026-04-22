@@ -5,6 +5,8 @@
  
      @for (alumno of listaAlumnos; track alumno.id) {
         <div class="card">
+          
+            <img class="card-img-top" [src]="getFotoAlumno(alumno.id)">
             <div class="card-body">
                 <h5 class="card-title"> {{alumno.id}} {{alumno.nombre}} {{alumno.apellido}} </h5>
                 <ul class="list-group list-group-flush">

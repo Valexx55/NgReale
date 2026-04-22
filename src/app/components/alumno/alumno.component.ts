@@ -34,6 +34,21 @@ export class AlumnoComponent implements OnInit{
   {
 
   }
+
+  getFotoAlumno (id:number): string{
+
+    let urlFoto = 'https://randomuser.me/api/portraits'
+    if (id%2==0) {
+      urlFoto = urlFoto+ '/women/'+id+'.jpg';
+
+    } else {
+      urlFoto = urlFoto+ '/men/'+id+'.jpg';
+    }
+    console.log(`urlFoto = ${urlFoto}`);
+    return urlFoto;
+    
+  }
+
   ngOnInit(): void {
     //pediremos los datos de alumnos al servicio
     console.log('Antes de pedir');
