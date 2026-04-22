@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AlumnoService } from '../../services/alumno.service';
+import { Observer } from 'rxjs';
+import { Alumno } from '../../models/alumno';
 
 @Component({
   selector: 'app-alumno',
@@ -6,6 +9,34 @@ import { Component } from '@angular/core';
   templateUrl: './alumno.component.html',
   styleUrl: './alumno.component.css'
 })
-export class AlumnoComponent {
+export class AlumnoComponent implements OnInit{
+
+  title:string= 'LISTADO DE ALUMNOS';
+
+  observerAlumnos:Observer<Array<Alumno>> = {
+    //si 200
+    next: (listaAlumnosRx: Alumno[]) => {
+      console.log(`lista de alumos recibida con ${listaAlumnosRx.length}`);
+    },
+    //si 400 0 500
+    error: (error) => console.error('Ha habido un error ' + error),
+    //al acabar
+    complete: () => console.log('comunicación completada')//lo quitas aquí
+  }
+
+  //inyección de dependencias
+  constructor(private alumnoservice:AlumnoService)
+  {
+
+  }
+  ngOnInit(): void {
+    //pediremos los datos de alumnos al servicio
+    console.log('Antes de pedir');
+    //cargas el spinner
+    this.alumnoservice.leerTodosLosAlumnos().subscribe(this.observerAlumnos);
+    console.log('Después de pedir');
+  }
+
+
 
 }

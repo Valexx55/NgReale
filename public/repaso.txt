@@ -12,3 +12,12 @@ Depedencias de nuestra app, van en el fichero package.json
 SPA: Single Page Application . Sólo exite el index.html
 
 Ciclo de vida del componente: constructor, ngOnInit...ngOnDestroy
+
+@if @for (antaño el ngIf y el ngFor): introducir bucles y secciones condcionales en el html
+
+COMUNICACIÓN TS <---> HTML Componente - Plantilla
+
+{{interpolación}} 
+[property binding] img, class, disabled
+(event binding) listener-callback
+[(ngModel)] two way binding
