@@ -1,1 +1,13 @@
-<p>formulario-alumno works!</p>
+<form #formulario_alumno="ngForm" (ngSubmit)="crearAlumno()">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" #nombre="ngModel" id="nombre" class="form-control" name="nombre" [(ngModel)]="alumno.nombre" placeholder="Intro nombre" required pattern=".{4,15}"> 
+        <!-- TODO: Revisar el estado de error -->
+        <div class="alert alert-danger" [hidden]="nombre.valid||nombre.pristine">
+            Nombre entre 4 y 15 letras
+        </div>
+    </div>
+
+
+    <button type="submit" [disabled]="!formulario_alumno.valid">CREAR</button>
+</form>
