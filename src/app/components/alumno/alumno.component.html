@@ -1,1 +1,31 @@
 <p>{{title}}</p>
+
+<div class="listaAlumnos">
+
+ 
+     @for (alumno of listaAlumnos; track alumno.id) {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"> {{alumno.id}} {{alumno.nombre}} {{alumno.apellido}} </h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Email {{alumno.email}}</li>
+                    <li class="list-group-item">Edad {{alumno.edad}}</li>
+                </ul>
+                <div class="card-footer text-muted">
+                    <!-- <p>{{alumno.creadoEn |date:'short'}}</p> -->
+                    <p>{{alumno.creadoEn |date:'dd/MM/yyyy'}}</p>
+                </div>
+                <button class="btn btn-danger" >
+                    BORRAR
+                </button>
+                <button class="btn btn-success">
+                     EDITAR
+                </button>
+
+            </div>
+        </div>
+    }
+
+
+</div>
+

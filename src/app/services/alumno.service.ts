@@ -30,6 +30,7 @@ export class AlumnoService {
    //serializa(des) automáticamente en este formato
 
   leerTodosLosAlumnos (): Observable<Array<Alumno>> {
+    //https://angular.dev/guide/http/making-requests#fetching-other-types-of-data
     return this.httpClient.get<Array<Alumno>>("https://my-json-server.typicode.com/valexx55/angularesjson/alumno");
    }
 }

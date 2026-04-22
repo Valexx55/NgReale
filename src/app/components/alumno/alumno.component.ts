@@ -2,21 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from '../../services/alumno.service';
 import { Observer } from 'rxjs';
 import { Alumno } from '../../models/alumno';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-alumno',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './alumno.component.html',
   styleUrl: './alumno.component.css'
 })
 export class AlumnoComponent implements OnInit{
 
   title:string= 'LISTADO DE ALUMNOS';
+  listaAlumnos:Array<Alumno>=[]  
+
 
   observerAlumnos:Observer<Array<Alumno>> = {
     //si 200
     next: (listaAlumnosRx: Alumno[]) => {
       console.log(`lista de alumos recibida con ${listaAlumnosRx.length}`);
+      console.table(listaAlumnosRx);
+      this.listaAlumnos = listaAlumnosRx;
     },
     //si 400 0 500
     error: (error) => console.error('Ha habido un error ' + error),
