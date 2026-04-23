@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AlumnoService } from '../../services/alumno.service';
 import { Observer } from 'rxjs';
 import { Alumno } from '../../models/alumno';
 import { DatePipe } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {NgIcon, provideIcons } from '@ng-icons/core'
 import { heroTrashSolid } from '@ng-icons/heroicons/solid';
 import { bootstrapPenFill } from '@ng-icons/bootstrap-icons';
@@ -23,6 +23,7 @@ import { bootstrapPenFill } from '@ng-icons/bootstrap-icons';
 export class AlumnoComponent implements OnInit {
   title: string = 'LISTADO DE ALUMNOS';
   listaAlumnos: Array<Alumno> = [];
+  router:Router = inject(Router); //inyección "moderna" no va en el constructor
 
   observerAlumnos: Observer<Array<Alumno>> = {
     //si 200
@@ -84,5 +85,7 @@ export class AlumnoComponent implements OnInit {
 
   editarAlumno(alumno: Alumno): void {
     console.log(`a Editar alumno ${alumno.id}`);
+    //navegar al componente del fomrualrio
+    this.router.navigate(['/alumno/form/edit', alumno.id]);
   }
 }

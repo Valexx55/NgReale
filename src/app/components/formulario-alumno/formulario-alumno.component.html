@@ -30,5 +30,5 @@
     </div>
 
     <br>
-    <button type="submit" class="btn btn-primary" [disabled]="!formulario_alumno.valid">CREAR</button>
+    <button type="submit" [class]="estiloBoton()" [disabled]="!formulario_alumno.valid">{{ (enEdicion) ? 'ACTUALIZAR' : 'CREAR'}}</button>
 </form>

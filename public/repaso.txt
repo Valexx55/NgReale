@@ -21,3 +21,30 @@ COMUNICACIÓN TS <---> HTML Componente - Plantilla
 [property binding] img, class, disabled
 (event binding) listener-callback
 [(ngModel)] two way binding
+
+SERVICIO: Clase que sirve datos al Componente "Proveedor"
+Para poder conectarnos por HTTP, necesitamos en el fichero app.config
+habilitar el módulo httpClientModule provideHttpClient()
+
+INYECCIÓN DE Depedencias
+
+Por defecto cuando angular arranca busca las clases anotadas 
+como servicios (Injectable) y las instancia. 
+
+Posteriormente desde el componente que necesita ese servicio lo declaramos como un atributo en el constructor o bien utilizamos la función INJECT para acceder a la instancia 
+
+Los servicios siguen el patron Singleton! (sólo hay una instancia)
+
+NGICONS - librería para iconos vectoriales
+Usando npm install https://github.com/ng-icons/ng-icons
+
+FORMULARIOS Plantilla
+
+Un variable para representar el fomrulario (ngForm)
+otras variables para representar los controles del fomrulario (ngModel)
+dirty/pristine/valid/touched, etc..
+Validación HTML
+Formularios sencillos
+vs 
+Formularios Reactivos (más avanzados) - Angular Intermedio
+https://angular.dev/guide/forms/reactive-forms

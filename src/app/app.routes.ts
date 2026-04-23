@@ -18,4 +18,5 @@ export const routes: Routes = [
     {path:'contratacion', component:ContratacionComponent},
     {path:'juego', component:JuegopptComponent},
     {path:'alumno/form', component:FormularioAlumnoComponent},
+    {path:'alumno/form/edit/:id', component:FormularioAlumnoComponent},
 ];
