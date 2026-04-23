@@ -76,10 +76,21 @@ Por cada acción/evento, programamos el REDUCER 3
 Generando un NUEVO estado en cada una
 
 3) APP CONFIG 
-//TODO: configuramos ngRx redux al inicio de la app y consumir REDUX
 
-4) Disparar las acciones desde los componentes
-   Leer del estado los valores que me interesen 
+
+  provideStore({
+        contratacion: contratacionReducer //iniciando estado de Redux, y diciéndole quién el gestor de Eventos
+      }),
+    //para Redux en Desarrollo, ver la traza en el navegador
+    provideStoreDevtools({
+      maxAge: 25,//log de las últimas acciones, por defecto 50
+      logOnly: !isDevMode()
+    })
+
+4) 
+   Disparar las acciones desde los componentes
+   
+   //TODO: Leer del estado los valores que me interesen 
 
 
 

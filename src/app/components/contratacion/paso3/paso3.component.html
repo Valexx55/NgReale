@@ -1,1 +1,63 @@
-<p>paso3 works!</p>
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-9 col-lg-7">
+
+        
+      <div class="card shadow-sm" *ngIf="contratacion$ | async as c">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <h5 class="mb-0">Contratación · Paso 3/3</h5>
+          <span class="badge"
+                [class.bg-success]="c.contratado"
+                [class.bg-secondary]="!c.contratado">
+            {{ c.contratado ? 'Contratado' : 'Pendiente' }}
+          </span>
+        </div>
+
+        <div class="card-body">
+          <p class="text-muted mb-4">Resumen</p>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="border rounded p-3">
+                <h6 class="mb-3">Persona</h6>
+                <div><strong>Nombre:</strong> {{ c.persona.nombre }}</div>
+                <div><strong>Edad:</strong> {{ c.persona.edad }}</div>
+                <div><strong>Sexo:</strong> {{ c.persona.sexo }}</div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="border rounded p-3">
+                <h6 class="mb-3">Vehículo</h6>
+                <div><strong>Matrícula:</strong> {{ c.coche.matricula }}</div>
+                <div><strong>Modelo:</strong> {{ c.coche.modelo }}</div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4" />
+
+          <div class="alert alert-info mb-0">
+            <strong>Oferta simulada:</strong> 29,99 €/mes (ejemplo)
+          </div>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between flex-wrap gap-2">
+          <button class="btn btn-outline-secondary" [disabled]="c.persona.nombre==''" (click)="anterior()">
+            Anterior
+          </button>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-danger" (click)="cancelar()">
+              No contratar
+            </button>
+            <button class="btn btn-success" (click)="contratar()">
+              Contratar
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
