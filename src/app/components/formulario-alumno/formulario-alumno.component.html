@@ -1,4 +1,4 @@
-<form #formulario_alumno="ngForm" (ngSubmit)="crearAlumno(formulario_alumno)">
+<form #formulario_alumno="ngForm" (ngSubmit)="enEdicion ? editarAlumno() : crearAlumno(formulario_alumno)">
     <div class="form-group">
         <label for="nombre">Nombre</label>
         <input type="text" #nombre="ngModel" id="nombre" class="form-control" name="nombre" [(ngModel)]="alumno.nombre" placeholder="Intro nombre" required pattern=".{4,15}"> 

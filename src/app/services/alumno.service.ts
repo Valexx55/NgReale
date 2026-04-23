@@ -11,6 +11,8 @@ import { Alumno } from '../models/alumno';
 })
 export class AlumnoService {
 
+  alumnoEnEdicion!:Alumno;
+
   /**
    * Esta clase encapsula la comunicación con el servidor
    * 
@@ -45,5 +47,12 @@ export class AlumnoService {
 
     {//url, cuerpo (alumno -> json), tipo Mime/ content-TYpe
       return this.httpClient.post<Alumno>('https://my-json-server.typicode.com/valexx55/angularesjson/alumno', alumno, {headers:this.cabeceras});
+    }
+
+    
+    actualizarAlumno(alumno:Alumno): Observable<Alumno>
+
+    {//url, cuerpo (alumno -> json), tipo Mime/ content-TYpe
+      return this.httpClient.put<Alumno>(`https://my-json-server.typicode.com/valexx55/angularesjson/alumno/${alumno.id}`, alumno, {headers:this.cabeceras});
     }
 }

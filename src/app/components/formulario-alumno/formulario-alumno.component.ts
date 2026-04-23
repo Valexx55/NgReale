@@ -9,6 +9,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Alumno } from '../../models/alumno';
 import { AlumnoService } from '../../services/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-formulario-alumno',
@@ -23,6 +24,19 @@ export class FormularioAlumnoComponent implements AfterViewInit, OnInit {
   @ViewChild('formulario_alumno') formulario!: NgForm;
 
   enEdicion!: boolean;
+
+  observerAlumno:Observer<Alumno> = {
+      next: (alumnoRx) => {
+        console.log('Alumno insertado ' + alumnoRx.nombre);
+        alert('Alumno actualizado correctamente :)');
+        //navegamos al listado
+        this.router.navigateByUrl('/alumno');
+      },
+      //si 400 0 500
+      error: (error) => console.error('Ha habido un error ' + error),
+      //al acabar
+      complete: () => console.log('comunicación completada'), //lo quitas aquí
+    }
 
   //router2 = inject(Router); //forma moderna de inyectar con inject
 
@@ -42,15 +56,18 @@ export class FormularioAlumnoComponent implements AfterViewInit, OnInit {
     //¿estoy editando o ha venido a crear?
     //accedo a la ruta actual y obtengo el parámetro :id - ver el app routes- :id
     let idEdicion = this.ruta.snapshot.paramMap.get('id');
-    // if (idEdicion)
-    // {
-    //   this.enEdicion = true;
-    // } else
-    // {
-    //   this.enEdicion = false;
-    // }
-    this.enEdicion = !!idEdicion;
+    if (idEdicion)
+    {
+      this.enEdicion = true;
+      //Leo de la memoria el alumno en edición
+      this.alumno = this.alumnoService.alumnoEnEdicion;
+    } else
+    {
+      this.enEdicion = false;
+    }
+    //this.enEdicion = !!idEdicion;
     console.log(`Estoy editando ? ${this.enEdicion}`);
+    
   }
 
   //vendría a ser el onLoad() - cuando ya se ha cargado el HTML
@@ -72,19 +89,14 @@ export class FormularioAlumnoComponent implements AfterViewInit, OnInit {
   }
 
   crearAlumno(formulario: NgForm) {
-    console.log(`tocó crear Alumno`);
+    console.log(`tocó crear Alumno crearAlumno`);
     console.log(`Formulario válido ${formulario.valid}`);
-    this.alumnoService.guardarAlumno(this.alumno).subscribe({
-      next: (alumnoRx) => {
-        console.log('Alumno insertado ' + alumnoRx.nombre);
-        alert('Alumno insertado correctamente :)');
-        //navegamos al listado
-        this.router.navigateByUrl('/alumno');
-      },
-      //si 400 0 500
-      error: (error) => console.error('Ha habido un error ' + error),
-      //al acabar
-      complete: () => console.log('comunicación completada'), //lo quitas aquí
-    });
+    this.alumnoService.guardarAlumno(this.alumno).subscribe(this.observerAlumno);
+  }
+
+  editarAlumno()
+  {
+    console.log(`tocó crear Alumno editarAlumno`);
+    this.alumnoService.actualizarAlumno(this.alumno).subscribe(this.observerAlumno);
   }
 }

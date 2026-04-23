@@ -85,6 +85,9 @@ export class AlumnoComponent implements OnInit {
 
   editarAlumno(alumno: Alumno): void {
     console.log(`a Editar alumno ${alumno.id}`);
+    //usamos el servicio como memoria temporal para almacenar el alumno a editar
+    //"escribimos"
+    this.alumnoservice.alumnoEnEdicion = alumno;
     //navegar al componente del fomrualrio
     this.router.navigate(['/alumno/form/edit', alumno.id]);
   }
