@@ -48,3 +48,38 @@ Formularios sencillos
 vs 
 Formularios Reactivos (más avanzados) - Angular Intermedio
 https://angular.dev/guide/forms/reactive-forms
+
+REDUX - NG RX 
+
+"nos da memoria entre pantallas/componentes" y además, trazabilidad de un proceso
+1) instalamos librerías 
+npm i @ngrx/store@1
+npm i @ngrx/store-devtools@19
+
+2) CREAMOS ESTADO, ACTIONS Y REDUCERS
+
+2.1 
+Modelamos Estado - Qué datos quiero ir guardando
+ContratacionState (DatosPersona, DatosCoche, isContratado)
+y Defino un estado inicial (persona '', datosCoche '', contratado 'false')
+
+2.2
+Defino los eventos (llamadas ACCIONES) que alteran el estado (inicial) de la app
+"GuardarPersona" -- cuando el usuario meta sus datos en el paso 1 del formulario y le dé a guardar
+"GuardarCoche" -- cuando el usuario meta su coche en el paso 2 del formulario y le dé a guardar
+"MarcarContrado" -- cuando el usuario active contratción en el paso 3 del formulario y le dé a contratar
+
+2.3
+Defino las acciones (llamadas REDUCER) consecuencia de haberse disparado un evento (Acción)
+Son funciones que sí que van a operar sobre el estado actual y van a crear uno nuevo
+Por cada acción/evento, programamos el REDUCER 3
+Generando un NUEVO estado en cada una
+
+3) APP CONFIG 
+//TODO: configuramos ngRx redux al inicio de la app y consumir REDUX
+
+4) Disparar las acciones desde los componentes
+   Leer del estado los valores que me interesen 
+
+
+
