@@ -1,59 +1,143 @@
-# AppRealeAngular
+# Recursos de apoyo — Angular, TypeScript, JavaScript y Testing
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.24.
+Este repositorio recopila enlaces útiles relacionados con Angular, TypeScript, JavaScript moderno, testing, peticiones HTTP, almacenamiento local, iconos y herramientas del ecosistema frontend.
 
-## Development server
+---
 
-To start a local development server, run:
+## Angular
 
-```bash
-ng serve
-```
+### Instalación y CLI
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [Installation • Angular](https://angular.dev/installation)  
+  Guía oficial para instalar Angular y preparar el entorno de desarrollo.
 
-## Code scaffolding
+- [CLI Reference • Overview • Angular](https://angular.dev/cli)  
+  Referencia oficial de Angular CLI: creación de proyectos, generación de componentes, builds, tests y más.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- [Version compatibility • Angular](https://angular.dev/reference/versions)  
+  Tabla oficial de compatibilidad entre Angular, Node.js, TypeScript y RxJS.
 
-```bash
-ng generate component component-name
-```
+- [Update guide • Angular](https://angular.dev/update-guide?v=20.0-21.0&l=1)  
+  Guía oficial para actualizar proyectos Angular entre versiones.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Angular moderno
 
-## Building
+### Standalone Components
 
-To build the project run:
+- [Standalone • Angular](https://angular.dev/reference/migrations/standalone)  
+  Documentación oficial sobre componentes standalone y migración desde módulos tradicionales.
 
-```bash
-ng build
-```
+### Ciclo de vida de componentes
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- [Lifecycle • Angular](https://angular.dev/guide/components/lifecycle)  
+  Explicación de los métodos del ciclo de vida de los componentes Angular.
 
-## Running unit tests
+### Control flow moderno
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- [@for • Angular](https://angular.dev/api/core/@for#track-and-objects-identity)  
+  Documentación oficial de `@for`, incluyendo el uso de `track` y la identidad de objetos.
 
-```bash
-ng test
-```
+### Pipes
 
-## Running end-to-end tests
+- [DatePipe • Angular](https://angular.dev/api/common/DatePipe)  
+  Pipe oficial de Angular para formatear fechas en las plantillas.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## HTTP en Angular
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- [Making requests • Angular](https://angular.dev/guide/http/making-requests#fetching-other-types-of-data)  
+  Guía oficial para realizar peticiones HTTP en Angular, incluyendo distintos tipos de respuesta.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Testing
+
+### End-to-end testing
+
+- [Fast and reliable end-to-end testing for modern web apps | Playwright](https://playwright.dev/)  
+  Framework moderno para testing end-to-end de aplicaciones web.
+
+### Unit testing
+
+- [Jasmine Documentation](https://jasmine.github.io/)  
+  Documentación oficial de Jasmine, framework de testing usado habitualmente en proyectos Angular.
+
+---
+
+## TypeScript
+
+- [TypeScript: Documentation - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)  
+  Guía oficial sobre los tipos más comunes de TypeScript.
+
+- [TypeScript: Handbook - Enums](https://www.typescriptlang.org/docs/handbook/enums.html)  
+  Documentación oficial sobre `enum` en TypeScript.
+
+---
+
+## JavaScript moderno
+
+### Spread syntax
+
+- [Sintaxis Spread - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax)  
+  Explicación del operador spread `...`, útil para copiar arrays, objetos y pasar argumentos.
+
+### Ordenación de arrays
+
+- [Array.prototype.sort() - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)  
+  Documentación sobre el método `sort()` para ordenar arrays en JavaScript.
+
+---
+
+## APIs del navegador
+
+### Local Storage
+
+- [Window.localStorage - API web | MDN](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)  
+  API del navegador para almacenar datos persistentes en el cliente.
+
+---
+
+## Librerías para Angular
+
+### Iconos
+
+- [ng-icons/ng-icons: The ultimate icon library for Angular](https://github.com/ng-icons/ng-icons)  
+  Librería de iconos para Angular compatible con múltiples colecciones de iconos.
+
+---
+
+## Ecosistema npm
+
+- [npm | Home](https://www.npmjs.com/)  
+  Registro oficial de paquetes npm, utilizado para instalar dependencias en proyectos JavaScript, TypeScript y Angular.
+
+---
+
+## Recomendación de uso
+
+Estos recursos pueden servir como apoyo para:
+
+- Repasar conceptos de Angular moderno.
+- Consultar documentación oficial durante el desarrollo.
+- Preparar ejemplos de formación.
+- Resolver dudas sobre TypeScript y JavaScript.
+- Implementar testing unitario y end-to-end.
+- Trabajar con APIs del navegador como `localStorage`.
+- Gestionar dependencias y librerías del ecosistema frontend.
+
+---
+
+## Bloques principales
+
+| Bloque | Recursos |
+|---|---|
+| Angular | Instalación, CLI, standalone, lifecycle, pipes, HTTP |
+| Testing | Playwright, Jasmine |
+| TypeScript | Tipos básicos, enums |
+| JavaScript | Spread, sort |
+| Browser APIs | localStorage |
+| Librerías | ng-icons |
+| Ecosistema | npm |
