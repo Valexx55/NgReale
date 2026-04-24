@@ -28,7 +28,8 @@ export class Paso2Component implements OnInit {
   async ngOnInit() {
 
     let datoCocheGuardado = await firstValueFrom( this.store.select(estado=> estado.contratacion.coche))
-    this.coche = {...datoCocheGuardado} //Importante una nueva referencia, si no, no deja leer y actualizar con ngModel después
+    this.coche = {...datoCocheGuardado} //Importante una nueva referencia, si no, no deja leer y actualizar con ngModel después. No puedo modificar un valor del Store directamente
+    //this.coche = datoCocheGuardado //Importante una nueva referencia, si no, no deja leer y actualizar con ngModel después
   }
 
   

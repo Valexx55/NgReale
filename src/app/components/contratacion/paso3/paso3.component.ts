@@ -47,16 +47,16 @@ export class Paso3Component {
     this.store.dispatch(marcarContratado({ contratado: false }));
   }
 
-  /**
+ /**
    * f5 - refrsco
    * Antes de que se recargue la página, se muestra un aviso
    * para recordar al usuario, que en caso de proceder
    * se pierden los datos
    * @param event RECARGA
    */
- /* @HostListener('window:beforeunload', ['$event'])
+  @HostListener('window:beforeunload', ['$event'])
   avisoRecarga(event: BeforeUnloadEvent) {
     event.preventDefault();
     //event.returnValue = '';
-  }*/
+  }
 }
