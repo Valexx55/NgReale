@@ -24,6 +24,7 @@ export class Paso1Component {
 
   siguiente()
   {
+    //LANZO LA ACCCIÓN
     this.store.dispatch(guardarPersona({persona:this.persona}));
     this.router.navigateByUrl("/paso-2");
   }

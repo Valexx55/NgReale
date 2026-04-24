@@ -9,21 +9,29 @@ import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-paso3',
-  imports: [AsyncPipe, NgIf],
+  imports: [AsyncPipe],
   templateUrl: './paso3.component.html',
   styleUrl: './paso3.component.css',
 })
 export class Paso3Component {
-  //los observables, por convención, llevan un $ al final,
-  //e indican, que se actulizan automáticamente
-  //que están transmitiendo los cambios en el Store
-  contratacion$: Observable<ContratacionState>;
+  
+
+  //este variable está "observando" los cambios que se producen en el Store
+  //inicialmente, lee una vez, pero cuando vayan cambiando aparaciendo
+  //por conveción, los observables se definen con un $ al final
+  estadoContratacion$:Observable<ContratacionState>;
 
   constructor(
     private store: Store<AppState>,
     private router: Router,
   ) {
-    this.contratacion$ = this.store.select((estado) => estado.contratacion);
+    //extraigo del store (estado global) los datos de mi proceso de contracion: ContratacionState
+    this.estadoContratacion$ = this.store.select((estado) => estado.contratacion)
+    /*this.estadoContratacion$.subscribe (
+      {
+        //next, complete, error
+      }
+    )*/
   }
 
   anterior() {
@@ -46,9 +54,9 @@ export class Paso3Component {
    * se pierden los datos
    * @param event RECARGA
    */
-  @HostListener('window:beforeunload', ['$event'])
+ /* @HostListener('window:beforeunload', ['$event'])
   avisoRecarga(event: BeforeUnloadEvent) {
     event.preventDefault();
     //event.returnValue = '';
-  }
+  }*/
 }
