@@ -39,7 +39,8 @@ describe('DniComponent', () => {
     //expect(component.letra).toBe("H");
     fixture.detectChanges();//ACTULICE EL COMPOENNTE/SU ESTADO/LA PLANTILLA
     //compruebo que la sección div de la letra existe
-    expect(fixture.nativeElement.querySelector("#cajaLetra").innerHTML).toContain("Su letra es");
+    expect(fixture.nativeElement.querySelector("#seccionLetraNueva").innerHTML)
+    .toContain("Su letra ");
 
   });
 

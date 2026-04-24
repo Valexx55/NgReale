@@ -28,13 +28,15 @@ describe('AppComponent', () => {
 }
 
    */
+  //instancia un componente y comprueba que el objeto existe
 it('componente raíz creado', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const appc = fixture.componentInstance;
-    expect(appc).toBeTruthy();
+    expect(appc).toBeTruthy();//aserciones
   });
   
 
+  //item test
   it('comprobar el titulo de la app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;

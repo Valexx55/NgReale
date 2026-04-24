@@ -17,7 +17,7 @@ export class AppComponent {
    */
 
    //atributos
-  title = 'appRealeAngular';
+  title = 'REALE';
   saludo = 'hola';
 
   //métodos / funciones
