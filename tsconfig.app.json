@@ -11,5 +11,9 @@
   ],
   "include": [
     "src/**/*.d.ts"
+  ],
+  /* nueva sección para evitar compilación  */
+  "exclude": [
+    "src/**/*.spec.ts"
   ]
 }

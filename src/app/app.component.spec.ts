@@ -1,29 +1,61 @@
+/// <reference types="jasmine" />
+
+/**VS code tiene un problema con la ubicación de archivos
+ * seguramente que sirviendo este app appRealeAngular desde un directorio
+ * raíz, se soluciona. pero importando los tipos de Jasmine expresamente, también lo arreglamos
+con esto, VS code, carga las definiciones globales de tipo Jasmine dentro del contexto del proyecto 
+*/
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { routes } from './app.routes';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter(routes, withComponentInputBinding())]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+    /**
+   * 
+   * abstract class ComponentFixture {
+   *  
+     componentInstance;  // access properties and methods
+     nativeElement;      // access DOM plantilla
+     detectChanges();    // trigger component change detection
+}
+
+   */
+it('componente raíz creado', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const appc = fixture.componentInstance;
+    expect(appc).toBeTruthy();
+  });
+  
+
+  it('comprobar el titulo de la app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(app.title).toEqual('REALE');
   });
 
-  it(`should have the 'appRealeAngular' title`, () => {
+  it('comprobamos alt logo se Angular Logo', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const domHtmlComponente = fixture.nativeElement as HTMLElement;//accedo al html
+    expect(domHtmlComponente.querySelector('img')?.alt).toMatch("Angular Logo")
+    
+  });
+
+  it(`actualizmos el título del componente`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('appRealeAngular');
+    app.title = "REALE SEGUROS";
+    fixture.detectChanges();//activo la reactividad
+    const domHtmlComponente = fixture.nativeElement as HTMLElement;//accedo al html
+    expect(domHtmlComponente.querySelector('.navbar-brand')?.textContent).toEqual('CURSO ANGULAR REALE SEGUROS');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, appRealeAngular');
-  });
+
 });
